@@ -1,0 +1,65 @@
+/*CSS do Componente MovieRow*/
+.movieRow{
+    margin-bottom: 30px;
+}
+.movieRow h2 {
+    margin: 0px 0px 0px 30px /* 0 em cima, 0 na direita, 0 em baixo, 30px na esquerda*/
+}
+.movieRow--listarea{
+    overflow-x: hidden;
+    /* Tudo que passar da Tela na horizontal será cortado */
+    padding-left: 30px;
+    /* Alinha junto ao Título, um afastamento da esquerda */
+}
+.movieRow--list{
+    width: 999999px;
+}
+.movieRow--item{
+    display:inline-block;
+    /* Um item fica ao lado do outro */
+    width: 150px; /*Largura de 150px para cada Filme*/
+    cursor: pointer /*Mouse fique em forma de Clique nos Itens*/
+}
+.movieRow--item img{
+    width: 100%; /*Largura de 100% da Área Disponível, ou seja, 150px*/
+    transform: scale(0.9); /*Possui 100%, mas o CSS será diminuído para ficar em 90% */
+    transition: all ease 0.2s; /*qualquer Transição all da Imagem será Ease, mais suave, e durará 200 milissegundos */
+}
+.movieRow--item img:hover {
+    /*hover: Animação gerada pela Passagem do Mouse naquele Componente*/
+    transform: scale(1);
+    /*quando o Mouse passa na Imagem do movieRow--item, ela aumenta de tamanho em 10% */
+}
+.movieRow--left, .movieRow--right{
+    position: absolute;
+    width: 40px;
+    height: 225px;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0;
+}
+.movieRow--left{
+    left: 0;
+}
+.movieRow--right{
+    right: 0;
+}
+.movieRow:hover .movieRow--left, 
+.movieRow:hover .movieRow--right{
+    opacity: 1;
+}
+.movieRow--list{
+    transition: all ease 0.5s;
+}
+
+@media (max-width: 760px){
+    .movieRow--left,
+    .movieRow--right{
+        opacity: 1;
+    }
+}
